@@ -1,0 +1,13 @@
+h3 {
+  color: black;
+  font-family: gothic;
+  /* font-size: 300%; */
+  text-align: center;
+}
+footer {
+    background-color: pink;
+    height: 200px;
+    font-family: gothic;
+    font-size: 20pt;
+    text-align: center;
+}
