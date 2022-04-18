@@ -16,9 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import os
+from accounts import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_content.urls')),
     path('map', include('map.urls')),
     path('museum', include('museum.urls')),
+    path("accounts/", include("accounts.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    
 ]

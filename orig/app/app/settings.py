@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-g7zqvdcl96i9*#to_a*37f0av70==-__t5(c-!40=o)0104n86
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.ocf.berkeley.edu"]
+ALLOWED_HOSTS = ["www.ocf.berkeley.edu", "127.0.0.1"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main_content.apps.MainContentConfig',
+    'accounts',
 
 ]
 
@@ -134,12 +135,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 STATICFILES_DIRS = [
 str(BASE_DIR.joinpath('static'))
 ]
+
+STATIC_URL = '/~luw/memento/orig/app/static/'
+STATIC_ROOT = '/home/l/lu/luw/public_html/memento/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
+

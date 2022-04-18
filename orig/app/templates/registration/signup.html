@@ -2,7 +2,18 @@
 <html>
   {% include "nav.html" %}
     <br>
-    <form style = "margin: 25px;">
+
+
+
+
+  {% block content %}
+      <form method="POST" class="form-group">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class="btn btn-success">Sign Up</button>
+      </form>
+  {% endblock %}
+    <!-- <form style = "margin: 25px;">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -14,7 +25,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Join Now</button>
         <button type="submit" class="btn btn-primary">Log In</button>
-      </form>
+      </form> -->
 
       {% include "footer.html" %}
 </body>
