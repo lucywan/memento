@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html>
-  {% load static %}
+  {% include "nav.html" %}
+  <head>
+    <title>Add Map</title>
 
-{% include "nav.html" %}
-    <div GFG-include-html-snippet="nav.html"></div>
-<p>Welcome to the map</p>
-{% include "footer.html" %}
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 650px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+      (() => {
+        "use strict";
+        var e = {
+            d: (o, t) => {
+              for (var r in t)
+                e.o(t, r) &&
+                  !e.o(o, r) &&
+                  Object.defineProperty(o, r, { enumerable: !0, get: t[r] });
+            },
+            o: (e, o) => Object.prototype.hasOwnProperty.call(e, o),
+            r: (e) => {
+              "undefined" != typeof Symbol &&
+                Symbol.toStringTag &&
+                Object.defineProperty(e, Symbol.toStringTag, {
+                  value: "Module",
+                }),
+                Object.defineProperty(e, "__esModule", { value: !0 });
+            },
+          },
+          o = {};
 
-</body>
+        const location_1 = { lat: 37.8715, lng: -122.2730 }
+
+        function t() {
+          o = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: location_1,
+          });
+          new google.maps.Marker({ position: location_1, map: o });
+        }
+
+        e.r(o), e.d(o, { initMap: () => t });
+        var r = window;
+        for (var n in o) r[n] = o[n];
+        o.__esModule && Object.defineProperty(r, "__esModule", { value: !0 });
+
+      })();
+    </script>
+  </head>
+  <body>
+    <h3>Locations</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3EsuKW_5nbOdEugF7wkMSWmTidj-2-Uw&callback=initMap&v=weekly"
+      async
+    ></script>
+    {% include "footer.html" %}
+  </body>
 </html>
+
