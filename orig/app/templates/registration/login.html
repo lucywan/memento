@@ -2,13 +2,14 @@
 <html>
   {% include "nav.html" %}
     <br>
-
     <form method="post" style = "margin: 25px;">
+      <h3>Log In</h3>
       {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Log In</button>
-    </form>
-    <a href="{% url 'signup' %}">Sign Up</a>
+      {{ form.as_p}}
+        <button type="submit" class="btn btn-primary">Log In</button>
+        <p>Don't have an account? Sign up here:</p><a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+      </form>
+      
     <!-- <form style = "margin: 25px;">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>

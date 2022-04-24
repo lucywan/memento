@@ -33,11 +33,13 @@ ALLOWED_HOSTS = ["www.ocf.berkeley.edu", "127.0.0.1"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'django_bootstrap_icons',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
     'main_content.apps.MainContentConfig',
     'accounts',
 
