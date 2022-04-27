@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     'main_content.apps.MainContentConfig',
     'accounts',
+    'creator_forms'
 
 ]
 
@@ -145,13 +146,13 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 ###### FOR OCF HOSTING ####
-STATIC_ROOT = '/home/l/lu/luw/public_html/memento/static'
+#STATIC_ROOT = '/home/l/lu/luw/public_html/memento/static'
 ###########################
 
 ###### FOR LOCAL HOSTING ######
-# STATICFILES_DIRS = [
-# str(BASE_DIR.joinpath('static'))
-# ]
+STATICFILES_DIRS = [
+str(BASE_DIR.joinpath('static'))
+]
 ###############
 
 # Default primary key field type

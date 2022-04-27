@@ -1,8 +1,31 @@
 <!DOCTYPE html>
 <html>
   {% include "nav.html" %}
-    <form style = "margin: 25px;">
+  {%load crispy_forms_tags %}
+  {% block content %}
+  {% if user.is_authenticated %}
+
+  
+  <form method="post" style = "margin: 25px;">
+    <h3>Submit An NFT</h3>
+    
+    {% csrf_token %}
+    {{ form | crispy}}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {%else%}
+    <div style = "margin: 25px;">
+    <h3>Submit An NFT</h3>
+    <p>Please log in or sign up in order to submit NFTs.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+    <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+  </div>
+    {% endif %}
+    {%endblock content%}
+
+    <!-- <form style = "margin: 25px;">
       <h3>Submit An NFT</h3>
+      
         <div class="form-group">
             <div class="form-group">
                 <label for="exampleInputPassword1">Name</label>
@@ -24,7 +47,7 @@
           <br>
           <br>
         <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      </form> -->
 
       {% include "footer.html" %}
 </body>

@@ -4,14 +4,16 @@
     <br>
 
 
-
+    {%load crispy_forms_tags %}
 
   {% block content %}
       <form method="POST" class="form-group" style = "margin: 25px;">
         <h3>Sign Up</h3>
     {% csrf_token %}
-    {{ form }}
+    {{ form | crispy}}
+    <p>After signing up, you will be directed to the log in page. Please log in there.</p>
     <button type="submit" class="btn btn-success">Sign Up</button>
+
       </form>
   {% endblock %}
     <!-- <form style = "margin: 25px;">

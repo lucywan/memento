@@ -24,5 +24,6 @@ urlpatterns = [
     path('museum', include('museum.urls')),
     path("accounts/", include("accounts.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
-    
+    path("creator_forms/", include("creator_forms.urls")),
+    path("creator_forms/", include("django.contrib.auth.urls")),
 ]

@@ -9,9 +9,6 @@ def index_view(request):
 def about_view(request):
     return render(request, 'about.html')
 
-def creator_view(request):
-    return render(request, 'creator.html')
-
 def login_view(request):
     return render(request, 'login.html')
 
@@ -21,5 +18,12 @@ def team_view(request):
 def profile_view(request):
     return render(request, 'profile.html')
 
+from creator_forms.models import SubmitNFTModel
+
 def my_nft_view(request):
-    return render(request, 'my_nft.html')
+    context = {}
+    u = request.user
+    pending = SubmitNFTModel.objects.filter(username = u)
+    context["nft"] = pending
+    context["message"] = ""
+    return render(request, 'my_nft.html', context)

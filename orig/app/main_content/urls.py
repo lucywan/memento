@@ -7,7 +7,6 @@ urlpatterns = [
     path('about', views.about_view, name="about"),
     path('login', views.login_view, name="login"),
     path('team', views.team_view, name="team"),
-    path('creator', views.creator_view, name="creator"),
     path('profile', views.profile_view, name="profile"),
     path('my_nft', views.my_nft_view, name="my_nft"),
 ]
